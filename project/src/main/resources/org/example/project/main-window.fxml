@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.project.fxController.MainWindow">
+   <children>
+      <TabPane fx:id="tabPane" prefHeight="400.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Shop">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView layoutX="14.0" layoutY="14.0" prefHeight="251.0" prefWidth="200.0" />
+                        <Button fx:id="shopRe" layoutX="14.0" layoutY="276.0" mnemonicParsing="false" text="Review" />
+                        <ListView layoutX="268.0" layoutY="14.0" prefHeight="146.0" prefWidth="297.0" />
+                        <Button fx:id="shopAd" layoutX="268.0" layoutY="186.0" mnemonicParsing="false" text="Add to Cart" />
+                        <Button fx:id="shopDe" layoutX="365.0" layoutY="186.0" mnemonicParsing="false" text="Remove from Cart" />
+                        <Button fx:id="shopBy" layoutX="508.0" layoutY="186.0" mnemonicParsing="false" text="Buy" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Products">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <ListView fx:id="productAdminList" layoutX="14.0" layoutY="46.0" onMouseClicked="#loadProductData" prefHeight="294.0" prefWidth="200.0" />
+                        <RadioButton fx:id="legoBut" layoutX="458.0" layoutY="11.0" mnemonicParsing="false" onAction="#disableFields" text="Lego">
+                           <toggleGroup>
+                              <ToggleGroup fx:id="productType" />
+                           </toggleGroup></RadioButton>
+                        <RadioButton fx:id="plushieBut" layoutX="457.0" layoutY="136.0" mnemonicParsing="false" onAction="#disableFields" text="Plushie" toggleGroup="$productType" />
+                        <RadioButton fx:id="candyBut" layoutX="459.0" layoutY="236.0" mnemonicParsing="false" onAction="#disableFields" text="Candy" toggleGroup="$productType" />
+                        <TextField fx:id="legoCountField" layoutX="455.0" layoutY="32.0" prefHeight="26.0" prefWidth="121.0" promptText="PieceCount" />
+                        <TextField fx:id="plushieSizeField" layoutX="457.0" layoutY="158.0" prefHeight="26.0" prefWidth="117.0" promptText="Size(cm)" />
+                        <TextField fx:id="candyFlavorField" layoutX="458.0" layoutY="263.0" prefHeight="26.0" prefWidth="121.0" promptText="Flavor" />
+                        <TextField fx:id="candyTypeField" layoutX="459.0" layoutY="298.0" prefHeight="26.0" prefWidth="121.0" promptText="Type" />
+                        <TextField fx:id="plushieMaterialField" layoutX="457.0" layoutY="194.0" prefHeight="26.0" prefWidth="118.0" promptText="Material" />
+                        <Button fx:id="productAdd" layoutX="224.0" layoutY="301.0" mnemonicParsing="false" onAction="#createRecord" text="Add" />
+                        <Button fx:id="productsUp" layoutX="284.0" layoutY="301.0" mnemonicParsing="false" onAction="#updateRecord" text="Update" />
+                        <Button fx:id="productsDele" layoutX="363.0" layoutY="301.0" mnemonicParsing="false" onAction="#deleteRecord" text="Delete" />
+                        <TextField fx:id="productNameField" layoutX="231.0" layoutY="41.0" promptText="Name" />
+                        <Text layoutX="21.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Product List" />
+                        <TextField fx:id="productDesField" alignment="TOP_LEFT" layoutX="231.0" layoutY="81.0" prefHeight="101.0" prefWidth="150.0" promptText="Description">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="productQtyField" layoutX="232.0" layoutY="204.0" promptText="Quantity" />
+                        <TextField fx:id="productPriceField" layoutX="232.0" layoutY="244.0" promptText="Price" />
+                        <TextField fx:id="legoSizeField" layoutX="455.0" layoutY="104.0" prefHeight="26.0" prefWidth="121.0" promptText="Size(cm)" />
+                        <TextField fx:id="legoSetField" layoutX="455.0" layoutY="67.0" prefHeight="26.0" prefWidth="122.0" promptText="Set" />
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Customer">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView prefHeight="374.0" prefWidth="600.0">
+                          <columns>
+                            <TableColumn prefWidth="75.0" text="ID" />
+                            <TableColumn prefWidth="75.0" text="Name" />
+                              <TableColumn prefWidth="75.0" text="Email" />
+                              <TableColumn prefWidth="75.0" text="Address" />
+                              <TableColumn prefWidth="75.0" text="Phone" />
+                          </columns>
+                        </TableView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Orders">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</AnchorPane>
